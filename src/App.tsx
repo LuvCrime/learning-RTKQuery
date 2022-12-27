@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Posts } from "./components/Posts";
+import styled from "styled-components";
+import { Outlet } from "react-router-dom";
+
+const Wrapper = styled.div`
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-bottom: 30px;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <Outlet />
+
+      <Posts />
+    </Wrapper>
   );
 }
 
