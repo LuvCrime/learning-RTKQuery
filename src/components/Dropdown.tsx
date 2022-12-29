@@ -64,8 +64,8 @@ const DropdownLi = styled.li`
 
 interface DropdownProps {
   userIDs?: number[];
-  handleDropdown: any;
-  currentId: any;
+  handleDropdown: (id: number) => void;
+  currentId: number[];
 }
 
 export const Dropdown = ({
@@ -84,7 +84,7 @@ export const Dropdown = ({
     <Wrapper>
       {currentId.length > 0 ? (
         <ChoosenIDList>
-          {currentId.map((id: any) => {
+          {currentId.map((id: number) => {
             return <ChoosenIDElement key={id}>UserId: {id}</ChoosenIDElement>;
           })}
         </ChoosenIDList>

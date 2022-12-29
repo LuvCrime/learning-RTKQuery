@@ -20,7 +20,7 @@ const SearchField = styled.input`
 
 interface SearchProps {
   search: string;
-  setSearch: any;
+  setSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Search = ({ search, setSearch }: SearchProps) => {

@@ -90,7 +90,7 @@ export const Posts = () => {
     setModal(!isModal);
   };
 
-  const editPostHandle = (post: any) => {
+  const editPostHandle = (post: IPost) => {
     setEdit(true);
     setModal(!isModal);
     setEditingPost(post)

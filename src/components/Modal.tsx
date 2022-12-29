@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { Button as PublishButton } from "./Button";
+import { IPost } from '../models/models';
 import {
   useSetPostMutation,
   useEditPostMutation,
@@ -74,8 +75,8 @@ export const CloseButton = styled.div`
 `;
 
 interface ModalProps {
-  handleModal: any;
-  post?: any;
+  handleModal: () => void;
+  post: IPost | null;
   type: "publish" | "edit";
 }
 
@@ -101,7 +102,7 @@ export const Modal = ({ handleModal, post, type }: ModalProps) => {
   const buttonHandler = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     type: "publish" | "edit",
-    postId: number
+    postId?: number
   ) => {
     event.preventDefault();
     if (type === "publish") {
@@ -151,7 +152,7 @@ export const Modal = ({ handleModal, post, type }: ModalProps) => {
       ></Textarea>
       <PublishButton
         onClick={(e) =>
-          buttonHandler(e, type, type === "edit" ? post.id : undefined)
+          buttonHandler(e, type, type === "edit" ? post?.id : undefined)
         }
         marginRight="40px"
         isLoading={isLoading}
